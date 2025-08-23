@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#hero" class="navbar-logo">Ana Guevara</a>
+            <ul class="navbar-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#organizations">Organizations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <h1>Hi, I'm <span class="name">Ana Guevara</span>, and I am a</h1>
             <div class="title">Front End Developer.</div>
-            <p>I design and build engaging digital experiences that connect users with ideas—on any screen.</p>
+            <p>I am a bilingual professional who is passionate in designing and building engaging digital experiences that connect users with ideas—on any screen.</p>
         </div>
     </section>
 
@@ -57,65 +69,65 @@
 
     <!-- Education Section -->
     <section id="education">
-        <div class="container">
-            <div class="diploma-section">
-                <div class="diploma-frame">
-                    <h2>BACHELOR OF SCIENCE</h2>
-                    <div class="major">Software Engineering</div>
-                    <div class="subtitle">Undergrad</div>
-                    <div class="university">UNIVERSITY OF PUERTO RICO AT<br>MAYAGUEZ</div>
-                    <div class="diploma-details">
-                        <div class="detail-item">
-                            <p>Expected Graduation</p>
-                            <p><strong>2027</strong></p>
-                        </div>
-                        <div class="detail-item">
-                            <p>GPA</p>
-                            <p><strong>2.66</strong></p>
-                        </div>
+        <div class="container education-container">
+            <div class="edu-card">
+                <div class="edu-header">
+                    <span class="edu-degree">Bachelor of Science</span>
+                    <span class="edu-major">Software Engineering</span>
+                </div>
+                <div class="edu-details">
+                    <div>
+                        <span class="edu-label">University:</span>
+                        <span class="edu-value">University of Puerto Rico at Mayaguez</span>
                     </div>
-                    <div class="courses">
-                        <p>Relevant Courses:</p>
-                        <p>Advanced Programming • Algorithms • Data Structures • Web Design</p>
+                    <div>
+                        <span class="edu-label">Expected Graduation:</span>
+                        <span class="edu-value">2027</span>
                     </div>
+                    <div>
+                        <span class="edu-label">GPA:</span>
+                        <span class="edu-value">2.70</span>
+                    </div>
+                </div>
+                <div class="edu-courses">
+                    <span class="edu-label">Relevant Courses:</span>
+                    <span class="edu-value">Advanced Programming, Algorithms, Data Structures, Web Design, Algorithm Analysis, Programming Languages</span>
                 </div>
             </div>
-
-            <div class="skills-container">
+            <div class="skills-container-centered">
                 <div class="skills-section tech">
                     <div class="skills-icon">
-                        <img src="images/technical.png" alt="Technical Skills">
+                        <img src="images/technical.png" alt="Software Tools">
                     </div>
-                    <h3>TECHNICAL SKILLS</h3>
+                    <h3>Software Tools</h3>
                     <div class="skills-list">
-                        Python | Visual Studio Code | VBA<br>
-                        HTML | CSS | C++ | Swift(UI)<br>
-                        Java | Docker | Figma | GitLab<br>
-                        XCode | Office 365<br>
-                        Google WorkSpace
+                        Python | Visual Studio Code | VB | React<br>
+                        HTML | CSS | C++ | Swift(UI) | Flutter<br>
+                        Java | Docker | Figma | Git (GitBash, TortoiseGit) <br>
+                        Jira | BitBucket | Jenkins | Confluence | Artifactory<br>
+                        MobaXterm | Dbeaver | MariaDB | XCode | Office 365<br>
+                        Google WorkSpace | Power Automate
                     </div>
                 </div>
-
                 <div class="skills-section prof">
                     <div class="skills-icon">
                         <img src="images/prof.png" alt="Professional Skills">
                     </div>
                     <h3>PROFESSIONAL SKILLS</h3>
                     <div class="skills-list">
-                        Adaptability | Creativity<br>
-                        Problem Solving | Critical Thinking<br>
-                        Teamwork
+                        SCRUM and Agile Collaboration <br>
+                        UI/UX Design Thinking<br>
+                        Process Automation | Workflow Optimization | Technical Documentation
                     </div>
                 </div>
-
                 <div class="skills-section lang">
                     <div class="skills-icon">
-                        <img src="images/lang.png" alt="Languages">
+                        <!-- <img src="images/lang.png" alt="Languages"> -->
                     </div>
-                    <h3>LANGUAGES</h3>
-                    <div class="skills-list">
+                    <!-- <h3>LANGUAGES</h3> -->
+                    <!-- <div class="skills-list">
                         English | Spanish
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -123,7 +135,7 @@
 
     <!-- Experience Section -->
     <section id="experience">
-        <h2>work experience</h2>
+        <h2>Professional Experience</h2>
         <div class="experience-container">
             <!-- EcoElectrica -->
             <div class="experience-card">
@@ -134,81 +146,108 @@
                 <div class="experience-date">Jan 2025 - Present</div>
                 <div class="experience-info">
                     <ul>
-                        <li>Developed & optimized a DCS simulator to enhance training.</li>
-                        <li>Automated Office workflows with Power Automate & Python, improving efficiency by 60%.</li>
+                        <li>Co-developed a full-scale simulation of the company's Distributed Control System (DCS) with interactive interfaces, and led UI/UX design decisions to provide new hires with a realistic and intuitive training environment.</li>
+                        <li>Automated workflows by creating dynamic Excel workbooks with VBA macros for valve inspections and using Power Automate and Python scripts for the Finance Department, improving efficiency by over 60% and reducing manual effort by ~85%.</li>
                     </ul>
                     <div class="company-name">EcoElectrica Natural Gas Power Plant</div>
                 </div>
             </div>
 
-            <!-- Loxodon-1 -->
+            <!-- L3Harris -->
             <div class="experience-card">
                 <div class="experience-logo-container">
-                    <img src="images/Loxodon-1_Logo.png" alt="Loxodon-1 Logo" class="experience-logo">
+                    <img src="images/l3harris_logo.png" alt="L3Harris Logo" class="experience-logo">
                 </div>
-                <div class="experience-title">Front-End Developer</div>
-                <div class="experience-date">Jan 2024 - Present</div>
+                <div class="experience-title">Software Engineering Intern</div>
+                <div class="experience-date">May 2025 - August 2025</div>
                 <div class="experience-info">
                     <ul>
-                        <li>Built front-end interface for telemetry website visualizing real-time data.</li>
-                        <li>Used HTML, CSS, JS for responsive and accessible pages.</li>
-                        <li>Worked closely with engineering team for seamless integration.</li>
+                        <li>Engineered a full-stack interactive React dashboard with drag-and-drop widget functionality, and automated backend processes using a Python script and Node.js to achieve 98% automation in handbook integration.</li>
+                        <li>Led project collaboration and task management using Jira, BitBucket, and Confluence, while participating in SCRUM and Agile meetings to enhance project efficiency and speed.</li>
                     </ul>
-                    <div class="company-name">Loxodon-1 UPRM</div>
+                    <div class="company-name">L3Harris Technologies</div>
                 </div>
             </div>
 
-            <!-- Material Advantage -->
+            <!-- Roadeo -->
             <div class="experience-card">
                 <div class="experience-logo-container">
-                    <img src="images/maAd_logo.png" alt="Material Advantage Logo" class="experience-logo">
+                    <img src="images/Roadeo_Logo.png" alt="Roadeo Logo" class="experience-logo">
                 </div>
-                <div class="experience-title">Front-End Webmaster</div>
-                <div class="experience-date">Jan 2024 - April 2024</div>
+                <div class="experience-title">Front‑End UI/UX Engineer Intern</div>
+                <div class="experience-date">August 2025 - Ongoing</div>
                 <div class="experience-info">
                     <ul>
-                        <li>Applied SCRUM methodology bi-weekly to manage tasks and deadlines.</li>
-                        <li>Designed student-friendly, accessible website with streamlined UX.</li>
+                        <li>Led UI/UX redesigns for a new mobile booking flow using Figma and enhanced UX with Dart and Flutter by implementing a dark mode and a new contactless payment feature that adhered to WCAG accessibility standards.</li>
+                        <li>Developed and implemented responsive UI components for a new Business Web Dashboard and contributed to the shared design system by creating reusable components, strengthening the company's library for future use.</li>
                     </ul>
-                    <div class="company-name">Material Advantage UPRM</div>
+                    <div class="company-name">L3Harris Technologies</div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Organizations Section -->
     <section id="organizations">
-        <div class="container">
-            <h2>Organizations & Leadership</h2>
-            <div class="org-grid">
-                <div class="org-card">
-                    <img src="images/acm-w (3).png" alt="ACM-W Logo" class="org-logo">
-                    <div class="org-info">
-                        <div class="org-title">President</div>
-                        <div class="org-date">Jan 2025 - Present</div>
-                        <ul>
-                            <li>Organized workshops and events for UI/UX, software & professional skills.</li>
-                            <li>Promoted inclusion and confidence in tech spaces.</li>
-                        </ul>
-                    </div>
-                    <div class="org-name">Association for Computing Machinery - Women's Chapter</div>
+    <div class="container">
+        <h2>University Relations</h2>
+        <div class="org-grid">
+            <!-- ACM-W -->
+            <div class="org-card">
+                <img src="images/acm-w (3).png" alt="ACM-W Logo" class="org-logo">
+                <div class="org-info">
+                    <div class="org-title">President</div>
+                    <div class="org-date">Jan 2025 - Present</div>
+                    <ul>
+                        <li>Led and managed the chapter's executive board, overseeing strategic planning and the successful execution of high-impact events and workshops that enriched members' technical skills and professional confidence.</li>
+                        <li>Fostered an inclusive and empowering environment for women and non-binary individuals in computing by coordinating with industry professionals to provide professional development opportunities, scholarships, and internships.</li>
+                    </ul>
                 </div>
-                
-                <div class="org-card">
-                    <img src="images/CAHSI-UPRM-Logo.png" alt="CAHSI Logo" class="org-logo">
-                    <div class="org-info">
-                        <div class="org-title">Protege in Allyship Program</div>
-                        <div class="org-date">Sep 2023 - Present</div>
-                        <ul>
-                            <li>Promoted empowerment and inclusion for women in tech.</li>
-                            <li>Organized mentorship and leadership teams.</li>
-                        </ul>
-                    </div>
-                    <div class="org-name">CAHSI - UPRM</div>
+                <div class="org-name">Association for Computing Machinery - Women's Chapter</div>
+            </div>
+            <!-- Loxodon-1 Front-End Developer -->
+            <div class="org-card">
+                <img src="images/Loxodon-1_Logo.png" alt="Loxodon-1 Logo" class="org-logo">
+                <div class="org-info">
+                    <div class="org-title">Front-End Developer</div>
+                    <div class="org-date">Jan 2024 - May 2025</div>
+                    <ul>
+                        <li>Engineered a full-stack real-time telemetry website using HTML, CSS, and JavaScript to visualize complex engine data, creating an intuitive and accessible user interface for all technical skill levels.</li>
+                        <li>Oversaw front-end development for the project, building a responsive and aesthetically pleasing UI while collaborating with the backend team to ensure seamless integration and data pipeline flow via Docker.</li>
+                    </ul>
                 </div>
+                <div class="org-name">Loxodon-1 UPRM</div>
+            </div>
+            <!-- Material Advantage -->
+            <div class="org-card">
+                <img src="images/maAd_logo.png" alt="Material Advantage Logo" class="org-logo">
+                <div class="org-info">
+                    <div class="org-title">Front-End Webmaster</div>
+                    <div class="org-date">Jan 2024 - April 2024</div>
+                    <ul>
+                       <li>Led UI/UX planning for a student-focused website, participating in SCRUM meetings to design an intuitive, magazine-style layout with a clean aesthetic and easy navigation.</li>
+                        <li>Collaborated with the backend team on page flow and seamless integration, while leveraging WordPress and custom HTML to overcome limitations and deliver an interactive, accessible site.</li>
+                    </ul>
+                </div>
+                <div class="org-name">Material Advantage UPRM</div>
+            </div>
+            <!-- Loxodon-1 Business Lead -->
+            <div class="org-card">
+                <img src="images/Loxodon-1_Logo.png" alt="Loxodon-1 Logo" class="org-logo">
+                <div class="org-info">
+                    <div class="org-title">Business Lead</div>
+                    <div class="org-date">May 2025 - Present</div>
+                    <ul>
+                        <li>Managed all division-wide operations, overseeing task distribution and workflow optimization to maximize productivity, while also managing financial operations and automating key processes to ensure project profitability.</li>
+                        <li>Collaborated with the Project Manager on outreach and brand recognition strategies, taking charge of the official website and coordinating professional workshops and conferences to enrich student growth.</li>
+                    </ul>
+                </div>
+                <div class="org-name">Loxodon-1 UPRM</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact">

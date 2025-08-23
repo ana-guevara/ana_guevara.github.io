@@ -22,6 +22,73 @@ body {
     min-height: 100vh;
 }
 
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 98%;
+    margin: 1rem auto;
+    z-index: 1000;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(191,134,224,0.12);
+    border-radius: 20px;
+    border: 1px solid #e2d3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.navbar-logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #9554be;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-right: 2rem;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navbar-links li {
+    border-right: 1px solid #e2d3f3;
+    padding-right: 2rem;
+}
+.navbar-links li:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.navbar-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+    position: relative;
+    padding: 0.5rem 0.5rem;
+    border-radius: 12px;
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+    color: #9554be;
+    background: rgba(191,134,224,0.08);
+}
+
 /* Typography */
 h1, h2, h3, h4 {
     font-weight: 700;
@@ -431,6 +498,16 @@ section {
     padding-left: 2rem;
 }
 
+/* Center skills vertically, one after another */
+.skills-container-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding-left: 0;
+}
+
 .skills-section.tech {
     grid-area: tech;
 }
@@ -447,6 +524,8 @@ section {
 }
 
 .skills-section {
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
@@ -780,3 +859,58 @@ footer {
         padding: 1.5rem;
     }
 }
+
+.education-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.edu-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(191,134,224,0.10);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid #e2d3f3;
+}
+
+.edu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid #e2d3f3;
+    padding-bottom: 1rem;
+}
+
+.edu-degree {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #9554be;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.edu-major {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.edu-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.edu-details > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ...existing code... */
