@@ -161,3 +161,103 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Bubbles animation for hero section background
+(function() {
+    const canvas = document.getElementById('hero-bubbles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let bubbles = [];
+    let mouse = { x: null, y: null };
+
+    function resizeCanvas() {
+        const hero = document.querySelector('.hero');
+        canvas.width = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+    }
+
+    function randomColor() {
+        const colors = [
+            'rgba(191,134,224,0.25)',
+            'rgba(149,84,190,0.25)',
+            'rgba(255,255,255,0.18)',
+            'rgba(138,91,167,0.22)'
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function createBubbles(num) {
+        bubbles = [];
+        for (let i = 0; i < num; i++) {
+            bubbles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: 24 + Math.random() * 32,
+                dx: (Math.random() - 0.5) * 1.2,
+                dy: (Math.random() - 0.5) * 1.2,
+                color: randomColor()
+            });
+        }
+    }
+
+    function drawBubbles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        bubbles.forEach(bubble => {
+            ctx.beginPath();
+            ctx.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
+            ctx.fillStyle = bubble.color;
+            ctx.fill();
+        });
+    }
+
+    function animateBubbles() {
+        bubbles.forEach(bubble => {
+            bubble.x += bubble.dx;
+            bubble.y += bubble.dy;
+
+            // Bounce off edges
+            if (bubble.x < bubble.r || bubble.x > canvas.width - bubble.r) bubble.dx *= -1;
+            if (bubble.y < bubble.r || bubble.y > canvas.height - bubble.r) bubble.dy *= -1;
+
+            // Mouse interaction: shift bubbles away from mouse
+            if (mouse.x !== null && mouse.y !== null) {
+                const dist = Math.hypot(mouse.x - bubble.x, mouse.y - bubble.y);
+                if (dist < bubble.r + 40) {
+                    // Calculate angle and push bubble away from mouse
+                    const angle = Math.atan2(bubble.y - mouse.y, bubble.x - mouse.x);
+                    bubble.dx += Math.cos(angle) * 2.5; // Increased strength
+                    bubble.dy += Math.sin(angle) * 2.5;
+                }
+            }
+
+            // Slow down bubbles gradually for smoother effect
+            bubble.dx *= 0.98;
+            bubble.dy *= 0.98;
+        });
+        drawBubbles();
+        requestAnimationFrame(animateBubbles);
+    }
+
+    canvas.addEventListener('mousemove', function(e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', function() {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        createBubbles(22);
+    });
+
+    // Initialize
+    setTimeout(() => {
+        resizeCanvas();
+        createBubbles(22);
+        animateBubbles();
+    }, 300);
+})();
