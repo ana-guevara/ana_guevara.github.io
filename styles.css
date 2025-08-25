@@ -52,6 +52,7 @@ body {
     justify-content: center;
     transition: background 0.3s;
     overflow: hidden;
+    position: relative; /* <-- Add this line */
 }
 
 .navbar-container {
@@ -101,6 +102,59 @@ body {
 .navbar-links a:hover {
     color: #9554be;
     background: rgba(191,134,224,0.08);
+}
+
+/* Hamburger menu styles */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1101; /* <-- Increase z-index */
+}
+
+.navbar-toggle .bar {
+    width: 28px;
+    height: 4px;
+    background: #9554be;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        background: rgba(255,255,255,0.97);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 8px 24px rgba(191,134,224,0.10);
+        z-index: 1001;
+    }
+    .navbar-links.active {
+        display: flex;
+    }
+    .navbar-toggle {
+        display: flex;
+    }
 }
 
 /* Typography */

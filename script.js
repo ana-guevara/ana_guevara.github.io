@@ -169,11 +169,13 @@ window.addEventListener('scroll', () => {
     const ctx = canvas.getContext('2d');
     let bubbles = [];
     let mouse = { x: null, y: null };
+    let isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     function resizeCanvas() {
         const hero = document.querySelector('.hero');
         canvas.width = hero.offsetWidth;
         canvas.height = hero.offsetHeight;
+        isMobile = window.matchMedia("(max-width: 768px)").matches;
     }
 
     function randomColor() {
@@ -192,9 +194,9 @@ window.addEventListener('scroll', () => {
             bubbles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                r: 24 + Math.random() * 32,
-                dx: (Math.random() - 0.5) * 1.2,
-                dy: (Math.random() - 0.5) * 1.2,
+                r: isMobile ? 14 + Math.random() * 12 : 24 + Math.random() * 32,
+                dx: (Math.random() - 0.5) * (isMobile ? 0.2 : 1.2),
+                dy: (Math.random() - 0.5) * (isMobile ? 0.2 : 1.2),
                 color: randomColor()
             });
         }
@@ -219,18 +221,16 @@ window.addEventListener('scroll', () => {
             if (bubble.x < bubble.r || bubble.x > canvas.width - bubble.r) bubble.dx *= -1;
             if (bubble.y < bubble.r || bubble.y > canvas.height - bubble.r) bubble.dy *= -1;
 
-            // Mouse interaction: shift bubbles away from mouse
-            if (mouse.x !== null && mouse.y !== null) {
+            // Mouse interaction: only on desktop
+            if (!isMobile && mouse.x !== null && mouse.y !== null) {
                 const dist = Math.hypot(mouse.x - bubble.x, mouse.y - bubble.y);
                 if (dist < bubble.r + 40) {
-                    // Calculate angle and push bubble away from mouse
                     const angle = Math.atan2(bubble.y - mouse.y, bubble.x - mouse.x);
-                    bubble.dx += Math.cos(angle) * 2.5; // Increased strength
+                    bubble.dx += Math.cos(angle) * 2.5;
                     bubble.dy += Math.sin(angle) * 2.5;
                 }
             }
 
-            // Slow down bubbles gradually for smoother effect
             bubble.dx *= 0.98;
             bubble.dy *= 0.98;
         });
@@ -238,26 +238,57 @@ window.addEventListener('scroll', () => {
         requestAnimationFrame(animateBubbles);
     }
 
-    canvas.addEventListener('mousemove', function(e) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
+    // Mouse events only on desktop
+    if (!isMobile) {
+        canvas.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
 
-    canvas.addEventListener('mouseleave', function() {
-        mouse.x = null;
-        mouse.y = null;
-    });
+        canvas.addEventListener('mouseleave', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
 
     window.addEventListener('resize', () => {
         resizeCanvas();
-        createBubbles(22);
+        createBubbles(isMobile ? 8 : 22);
     });
 
-    // Initialize
     setTimeout(() => {
         resizeCanvas();
-        createBubbles(22);
+        createBubbles(isMobile ? 8 : 22);
         animateBubbles();
     }, 300);
 })();
+
+// Mobile navbar toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const links = document.querySelector('.navbar-links');
+    if (toggle && links) {
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            links.classList.toggle('active');
+        });
+        // Close menu when a link is clicked (mobile UX)
+        links.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                links.classList.remove('active');
+            });
+        });
+    }
+});
+
+// Close menu if user clicks outside the menu
+document.addEventListener('click', function(e) {
+    const links = document.querySelector('.navbar-links');
+    const toggle = document.querySelector('.navbar-toggle');
+    if (links && toggle && links.classList.contains('active')) {
+        if (!links.contains(e.target) && !toggle.contains(e.target)) {
+            links.classList.remove('active');
+        }
+    }
+});
